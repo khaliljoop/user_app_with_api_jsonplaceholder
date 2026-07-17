@@ -1,0 +1,46 @@
+@if (user()) {
+  <div class="user-container">
+    <div class="user-card">
+
+      <div class="user-header">
+        <img
+          [src]="'https://picsum.photos/seed/' + user()!.id + '/120'"
+          class="avatar-large" />
+
+        <div>
+          <h2>{{ user()!.name }}</h2>
+          <p class="email">{{ user()!.email }}</p>
+        </div>
+      </div>
+
+      <div class="user-body">
+        <div class="info">
+          <span>📧 Email</span>
+          <p>{{ user()!.email }}</p>
+        </div>
+
+        <div class="info">
+          <span>📞 Téléphone</span>
+          <p>{{ user()!.phone }}</p>
+        </div>
+
+        <div class="info">
+          <span>🌐 Site web</span>
+          <p>{{ user()!.website }}</p>
+        </div>
+      </div>
+
+      <div class="user-footer">
+        <button (click)="goBack()" class="btn-back">
+          ← Retour
+        </button>
+      </div>
+
+    </div>
+  </div>
+} @else {
+  <div class="loading">
+    <div class="spinner"></div>
+    <p>Chargement...</p>
+  </div>
+}

@@ -1,0 +1,44 @@
+
+<h2 class="title">Utilisateurs</h2>
+
+<div class="search">
+  <input [(ngModel)]="search" placeholder="Rechercher un utilisateur..." />
+</div>
+
+<table class="user-table">
+  <thead>
+    <tr>
+      <th>Avatar</th>
+      <th>Nom</th>
+      <th>Email</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    @for (user of filteredUsers; track user.id) {
+      <tr>
+        <td>
+          <img
+            [src]="'https://picsum.photos/seed/' + user.id + '/60'"
+            class="avatar"
+          />
+        </td>
+
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+
+        <td>
+          <button class="btn-view" (click)="goToDetail(user.id)">
+            voir détail
+          </button>
+        </td>
+      </tr>
+    } @empty {
+      <tr>
+        <td colspan="4" class="no-data">Aucun utilisateur trouvé</td>
+      </tr>
+    }
+  </tbody>
+</table>
+
