@@ -4,7 +4,8 @@
 
       <div class="user-header">
         <img
-          [src]="'https://picsum.photos/seed/' + user()!.id + '/120'"
+          [src]="'https://api.dicebear.com/9.x/avataaars/svg?seed=' + user()!.id"
+          [alt]="user()!.name"
           class="avatar-large" />
 
         <div>
